@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STARTER - Toybox Homepage</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <!-- Look at design, start from top to bottom  -->
+
+    <!-- Announcements and navigation are outside the header in this example, if they were included inside the header it would also be correct (this is a decision you make as a dev or after talking to the designer)-->
+
+    <!-- Small banner at top with shipping instructions. Wrap most elements in the wrapper, even if it's a small element that would not hit the edge anyway -->
+    <div class="announcements">
+      <div class="wrapper">
+        <p class="smallCopy">
+          Complimentary shipping on orders over $50. Discount applied at
+          checkout.
+        </p>
+      </div>
+    </div>
+
+    <nav class="navBar">
+      <div class="wrapper">
+        <!-- To create a slide-out menu without JS, use a check-box. ALL input elements requires a label to connect them = "id" and "for" attributes need to match -->
+        <input type="checkbox" id="openSidebarMenu" />
+        <label for="openSidebarMenu">
+          <img
+            src="./assets/menu-button.svg"
+            alt="Menu button"
+            class="menuIcon"
+          />
+        </label>
+
+        <!-- .openSidebarMenu label END -->
+        <div class="slideOutNav">
+          <div class="buttonContainer">
+            <button>x</button>
+          </div>
+          <nav>
+            <ul class="mainMenu">
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- hr means a thematic break. Here it represents a break within two lists - the top one is for the menu and the bottom is for legal links -->
+            <hr />
+            <ul class="legal">
+              <li><a href="#">Licenses</a></li>
+              <li><a href="#">Style Guide</a></li>
+              <li><a href="#">Changelog</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <a href="#" class="logo">
+          <!-- H1 is not the biggest element on the page in this case - we need to interpret the design and decide what truly is the heading/most important thing of the page, likely will be the company name -->
+          <h1>Toybox</h1>
+        </a>
+        <!-- These buttons have different functionality, a button is used to DO something (opens a window, something slides out), and an anchor will TAKE you somewhere else on the page. Not a list in this case because they all have 3 separate functionalities  -->
+        <div class="searchCart">
+          <button class="menuIcon">
+            <img
+              src="./assets/search.svg"
+              alt="search icon"
+              class="searchIcon"
+            />
+          </button>
+
+          <a href="#" class="bag">
+            <img
+              src="./assets/shop-bag.svg"
+              alt="shopping bag icon"
+              class="bagIcon"
+            />
+          </a>
+          <div class="counter">
+            <p class="smallCopy">0</p>
+          </div>
+          <!-- .counter END -->
+        </div>
+        <!-- .searchCart END -->
+      </div>
+      <!-- .wrapper END -->
+    </nav>
+    <!-- .navBar END -->
+  </body>
 </html>
