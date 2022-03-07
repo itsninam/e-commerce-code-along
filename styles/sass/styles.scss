@@ -14,4 +14,7 @@
 // h4: 34px;
 // h5: 14px;
 
+//order of imports MATTERS due to cascade - from LESS general to MORE specific!
 @import "./partials/setup";
+@import "./partials/variables";
+@import "./partials/typography";
