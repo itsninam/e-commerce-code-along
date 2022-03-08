@@ -4,3 +4,137 @@
   text-align: center;
   border-bottom: 1px solid rgba(8, 75, 109, 0.08);
 }
+
+.navBar {
+  //Whenever we use position (absolute, relative, sticky, fixed) - we also need to use top/right/bottom/left
+  //Position fixed would have removed it's footprint
+  position: sticky;
+  top: 0;
+  //Because it is sticky and and it will show up on top of other elements need to add a z-index to ensure it always stays on top and is not overriden by other css rules down the road
+  z-index: 10;
+  border-bottom: 1px solid rgba(8, 75, 109, 0.08);
+  background-color: $solidWhite;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  .searchCart {
+    display: flex;
+    align-items: center;
+
+    .searchIcon,
+    .bagIcon {
+      margin-right: 15px;
+    }
+  }
+
+  a {
+    display: flex;
+  }
+
+  .logo {
+    margin-left: 60px;
+  }
+
+  .counter {
+    p {
+      width: 24px;
+      height: 24px;
+      background-color: $primary;
+      color: $solidWhite;
+      text-align: center;
+      border-radius: 50%;
+    }
+  }
+
+  //targeting the checkbox based on the type attribute
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+
+    //targeting checked input, and find element with .slideOutNav that follows an input that has been checked
+    &:checked ~ .slideOutNav {
+      left: 0;
+    }
+    //label directly adjacent
+    &:focus + label {
+      border: 1px dotted $primary;
+    }
+
+    label {
+      cursor: pointer;
+    }
+  }
+
+  .slideOutNav {
+    max-width: 506px;
+    // At small screen sizes (smaller than 506px), it will take up 100% of the screen - eliminates use of media queries
+    width: 100%;
+    height: 100vh;
+    padding: 35px 50px;
+    border-right: 1px solid $secondary;
+    background-color: $primary;
+    color: $solidWhite;
+    position: fixed;
+    //since we use a position fixed, make sure it is always on top so use z-index of 10 (higher than initial set above)
+    z-index: 20;
+    transition: 0.75s;
+    top: 0;
+    //positioned off the screen, we don't want to use display:none because then it won't be available to AT
+    left: -506px;
+    display: flex;
+    flex-direction: column;
+
+    .buttonContainer {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        color: $solidWhite;
+        background-color: transparent;
+        font-size: 1.2rem;
+        font-family: $bodyFont;
+        padding: 10px 0 10px 20px;
+      }
+    }
+
+    hr {
+      width: 24px;
+      height: 2px;
+      margin: 36px 0;
+      background-color: $solidWhite;
+      border: none;
+    }
+
+    .mainMenu {
+      font-family: "Young Serif";
+      font-size: 1.6rem;
+      line-height: 2.5rem;
+
+      a {
+        &:hover,
+        &:focus {
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+    .legal {
+      font-family: "Jakarta Sans";
+      font-size: 0.8rem;
+      font-weight: bold;
+      line-height: 1.5rem;
+
+      a {
+        color: rgba(225, 225, 255, 0.5);
+
+        &:hover,
+        &:focus {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+  }
+}
